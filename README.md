@@ -21,7 +21,8 @@ La aplicación incluye las políticas de privacidad requeridas para las integrac
 URL: https://polit-priv.vercel.app/
 
 ## Términos de Servicio
-Puedes configurar una URL distinta para los términos de servicio mediante la variable `TERMS_OF_SERVICE_URL`. Si no la defines, se utilizará la misma URL que `PRIVACY_POLICY_URL`.
+Términos publicados: https://polit-priv.vercel.app/terminos (ver también [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md)).
+Si necesitas una URL propia, configúrala con `TERMS_OF_SERVICE_URL`; si no la defines, se usará `PRIVACY_POLICY_URL`.
 
 ## Eliminación de Datos de Usuarios (Meta)
 La API expone endpoints para solicitudes de eliminación de datos exigidos por Meta:
@@ -33,8 +34,8 @@ La API expone endpoints para solicitudes de eliminación de datos exigidos por M
 Configura en `.env` (opcional):
 
 ```env
-SUPPORT_CONTACT_EMAIL=tu@correo.com
-PUBLIC_BASE_URL=http://localhost:8000
+SUPPORT_CONTACT_EMAIL=MARIAANDREACASTILLOARREGUI@GMAIL.COM
+PUBLIC_BASE_URL=http://localhost:8000            # cambia a tu dominio público (p. ej. https://tu-app.onrender.com)
 ```
 
 En la configuración de tu App en Meta (Configuración → Básica), agrega la **URL de eliminación de datos** apuntando a tu endpoint público, por ejemplo: `https://tu-dominio.com/data-deletion`.
