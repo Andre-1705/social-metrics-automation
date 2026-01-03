@@ -295,7 +295,7 @@ while True:
 
 ## 📋 Casos de Uso Reales
 
-### 1. Notificaciones de Eventos
+### 1. Notificaciones de Eventos (FB + IG)
 ```python
 async def notificar_evento(titulo, descripcion, imagen_url):
     data = {
@@ -306,9 +306,9 @@ async def notificar_evento(titulo, descripcion, imagen_url):
     # ... publicar
 ```
 
-### 2. Compartir Artículos de Blog
+### 2. Compartir Artículos de Blog (solo Facebook)
 ```python
-async def compartir_articulo(titulo, link, imagen):
+async def compartir_articulo_fb(titulo, link, imagen):
     data = {
         "message": f"📝 Nuevo artículo: {titulo}",
         "platforms": ["facebook"],
@@ -318,12 +318,24 @@ async def compartir_articulo(titulo, link, imagen):
     # ... publicar
 ```
 
-### 3. Promociones y Ofertas
+### 3. Compartir Carrusel/Imagen en Instagram (solo IG)
 ```python
-async def publicar_promocion(oferta, descuento, imagen):
+async def compartir_en_instagram(caption, imagen):
+    data = {
+        "message": caption,
+        "platforms": ["instagram"],
+        "image_url": imagen
+    }
+    # ... publicar
+```
+
+### 4. Promociones y Ofertas (elige Facebook/Instagram)
+```python
+async def publicar_promocion(oferta, descuento, imagen, solo_instagram=False):
+    plataformas = ["instagram"] if solo_instagram else ["facebook", "instagram"]
     data = {
         "message": f"🎁 {oferta}\n💰 {descuento}% de descuento\n#oferta #descuento",
-        "platforms": ["facebook", "instagram"],
+        "platforms": plataformas,
         "image_url": imagen
     }
     # ... publicar

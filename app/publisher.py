@@ -94,6 +94,9 @@ async def verify_connections(settings: Settings) -> list[dict[str, Any]]:
                 )
             )
         )
+
+    if settings.tiktok_access_token:
+        tasks.append(asyncio.create_task(tiktok.verify_token(settings.tiktok_access_token)))
     
     if not tasks:
         return [{"status": "no_credentials", "message": "No hay credenciales configuradas"}]

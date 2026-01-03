@@ -21,21 +21,49 @@ Esta guía te ayudará a configurar tu aplicación con Meta para publicar y obte
 
 ## 🔑 Paso 2: Configurar Productos de Meta
 
+### Agregar Productos en tu Aplicación
+
+1. Entra a [Meta for Developers](https://developers.facebook.com/)
+2. Ve a **"Mis Aplicaciones"** y selecciona tu app
+3. En el panel izquierdo, busca la sección **"Agregar productos"** o **"Products"**
+
 ### Para Facebook Pages:
 
-1. En el panel de tu aplicación, ve a **"Agregar Productos"**
-2. Busca y agrega **"Login de Facebook"** (Facebook Login)
-3. En el menú lateral, ve a **Configuración → Básica**
-4. Agrega las URLs de la aplicación:
-  - **URL de política de privacidad**: usa `PRIVACY_POLICY_URL` (por defecto `https://polit-priv.vercel.app/`)
-  - **URL de términos de servicio**: usa `TERMS_OF_SERVICE_URL`. Si tu página de políticas incluye también los términos, puedes usar la misma URL.
-5. Agrega el dominio de tu aplicación (si aplica)
-6. **URL de Eliminación de Datos**: agrega la URL pública de tu endpoint, por ejemplo `https://tu-dominio.com/data-deletion`. Meta usará esta URL para enviar solicitudes de eliminación de datos.
+4. En la lista de productos disponibles, busca **"Facebook Login"**
+   - Haz clic en **"Configurar"** o **"Set up"**
+   - Se agregará automáticamente al menú lateral
+
+5. Busca **"Facebook Pages"** en la lista de productos
+   - Haz clic en **"Configurar"** o **"Set up"**  
+   - Acepta los términos si aparece un diálogo
+   - Verás que se agrega al menú lateral
+
+6. Configura las URLs básicas:
+   - En el menú lateral, ve a **Configuración → Básica** (Settings → Basic)
+   - Llena estos campos:
+     - **URL de política de privacidad**: `https://polit-priv.vercel.app/`
+     - **URL de términos de servicio**: `https://polit-priv.vercel.app/` (o tu URL específica)
+     - **Dominio de la aplicación**: (opcional, para producción)
+     - **URL de Eliminación de Datos**: `https://tu-dominio.com/data-deletion` (para producción) o `http://localhost:8000/data-deletion` (para desarrollo)
 
 ### Para Instagram:
 
-1. En **"Agregar Productos"**, busca y agrega **"Instagram Graph API"**
-2. Configura los permisos necesarios
+7. En **"Agregar productos"**, busca **"Instagram"** o **"Instagram Graph API"**
+   - Haz clic en **"Configurar"** o **"Set up"**
+   - Se agregará al menú lateral como "Instagram Graph API" o "Instagram Basic Display"
+
+8. Si ves **"Instagram Business"** como opción separada, también agrégalo
+   - Haz clic en **"Configurar"**
+   - Nota: A veces Instagram Business viene incluido con Instagram Graph API
+
+### Verificar que los productos estén activos:
+
+9. En el panel lateral izquierdo, deberías ver ahora:
+   - ✅ **Facebook Login** (con icono de candado)
+   - ✅ **Facebook Pages** (con icono de página)
+   - ✅ **Instagram** o **Instagram Graph API** (con icono de cámara)
+
+10. Cada producto puede tener su propia sección de **"Configuración"** en el menú lateral
 
 ## 🎯 Paso 3: Configurar Permisos
 
