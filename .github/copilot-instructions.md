@@ -13,3 +13,5 @@
 [x] Enhanced API Endpoints (GET /, /verify, /health + POST /publish con soporte imagen/link + GET /metrics)
 [x] Documentation Suite (CONFIGURACION_META.md con guía paso a paso + EJEMPLOS.md con casos de uso + ESTADO_INTEGRACION.md)
 [x] Testing Infrastructure (test_meta.py para verificación de integración con Meta)
+[x] App Details Complete (GUIA_APLICACION_META.md con instrucciones paso a paso + config.py actualizado + .env estructurado + README mejorado)
+

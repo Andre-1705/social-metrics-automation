@@ -1,30 +1,90 @@
 # Social Metrics Automation
 
-Herramienta base para publicar y medir rendimiento en Facebook, Instagram, TikTok y WhatsApp (Cloud API). Incluye API REST con FastAPI y un CLI con Typer para orquestar publicaciones y obtener métricas.
+Herramienta para publicar y medir rendimiento en Facebook, Instagram, TikTok y WhatsApp (Cloud API). Incluye API REST con FastAPI y un CLI con Typer para orquestar publicaciones y obtener métricas.
 
-## Pila
+## 📚 Documentación
+
+### 🔥 Para Empezar (LEE ESTO PRIMERO)
+- **[GUIA_APLICACION_META.md](GUIA_APLICACION_META.md)**: Guía completa paso a paso para configurar tu aplicación en Meta for Developers
+- **[CHECKLIST_PUNTO1.md](CHECKLIST_PUNTO1.md)**: Checklist interactivo para ir marcando tu progreso
+- **[COMANDOS_UTILES.md](COMANDOS_UTILES.md)**: Comandos copy-paste para agilizar tu trabajo
+
+### 📖 Documentación Técnica
+- **[CONFIGURACION_META.md](CONFIGURACION_META.md)**: Instrucciones detalladas de integración con Facebook/Instagram
+- **[EJEMPLOS.md](EJEMPLOS.md)**: Casos de uso y ejemplos prácticos de la API
+- **[ESTADO_INTEGRACION.md](ESTADO_INTEGRACION.md)**: Estado actual del proyecto y roadmap
+
+### ✅ Informes de Progreso
+- **[PUNTO1_COMPLETADO.md](PUNTO1_COMPLETADO.md)**: Resumen del trabajo completado en el Punto 1
+
+
+## 🚀 Pila Tecnológica
 - Python 3.11+
 - FastAPI + Uvicorn
 - httpx (async) para llamadas a APIs
 - APScheduler para tareas periódicas
 - Typer para CLI
 
-## Configuración rápida
-1. Crea y activa un entorno virtual (ejemplo con `python -m venv .venv`).
-2. Instala dependencias: `pip install -r requirements.txt`.
-3. Copia `.env.example` a `.env` y rellena los tokens de cada plataforma.
-4. Ejecuta la API: `uvicorn app.main:app --reload --host 0.0.0.0 --port 8000`.
-5. Ejecuta el CLI: `python -m app.cli --help`.
+## ⚡ Configuración Rápida
 
-## Políticas de Privacidad
+### 1. Preparar entorno
+```bash
+# Crear y activar entorno virtual
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1  # Windows PowerShell
+# source .venv/bin/activate    # Linux/Mac
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### 2. Configurar credenciales
+
+**IMPORTANTE**: Antes de configurar el `.env`, lee **[GUIA_APLICACION_META.md](GUIA_APLICACION_META.md)** para obtener tus credenciales correctamente.
+
+```bash
+# Copiar plantilla
+cp .env.example .env
+
+# Editar con tus valores reales
+code .env
+```
+
+### 3. Verificar configuración
+```bash
+# Probar conexión con Meta
+python test_meta.py
+```
+
+### 4. Iniciar API
+```bash
+# Opción 1: Con uvicorn directamente
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+# Opción 2: Con tarea de VS Code
+# Ctrl+Shift+P → Tasks: Run Task → run-api
+```
+
+### 5. Probar API
+```bash
+# Documentación interactiva
+http://localhost:8000/docs
+
+# O con curl
+curl http://localhost:8000/health
+```
+
+## 🔐 Políticas de Privacidad
+
 La aplicación incluye las políticas de privacidad requeridas para las integraciones con redes sociales.
-URL: https://polit-priv.vercel.app/
 
-## Términos de Servicio
-Términos publicados: https://polit-priv.vercel.app/terminos (ver también [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md)).
-Si necesitas una URL propia, configúrala con `TERMS_OF_SERVICE_URL`; si no la defines, se usará `PRIVACY_POLICY_URL`.
+- **Política de Privacidad**: https://polit-priv.vercel.app/
+- **Términos de Servicio**: https://polit-priv.vercel.app/terminos
+- **Eliminación de Datos**: https://polit-priv.vercel.app/elimindatos
 
-## Eliminación de Datos de Usuarios (Meta)
+Ver [TERMS_OF_SERVICE.md](TERMS_OF_SERVICE.md) para más detalles.
+
+## 🗑️ Eliminación de Datos de Usuarios (Meta)
 La API expone endpoints para solicitudes de eliminación de datos exigidos por Meta:
 
 - `GET /data-deletion` – Recibe solicitudes (compatible con `signed_request` y `user_id`)
